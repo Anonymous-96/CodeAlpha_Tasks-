@@ -13,10 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author Faysal Ahmed
- */
+
 public class BookingTableModel extends AbstractTableModel {
 
     private String[] columnNames;
@@ -27,26 +24,22 @@ public class BookingTableModel extends AbstractTableModel {
         iniColNames();
         fetchDataFromDB(start, end);
         
-       // System.out.println("today > "+Calendar.DAY_OF_MONTH+"\n 10 day later"+(Calendar.DAY_OF_MONTH+10));
-       
+        
     }
 
     public void iniColNames() {
 
         date = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("d");
-        // -1 , because date starts with 0
-        int today = ( Integer.parseInt(ft.format(date))-1 )%getMonthLimit(date);
-        //System.out.println(today+", today");
-        columnNames = new String[11];
+         int today = ( Integer.parseInt(ft.format(date))-1 )%getMonthLimit(date);
+         columnNames = new String[11];
         columnNames[0] = "#";
         for(int i =1;i<11;i++)
         {
             
             today = today%getMonthLimit(date);
             today ++;
-          //  System.out.println(today+" , loop today");
-            columnNames[i] = today+"";
+             columnNames[i] = today+"";
         }
     }
 
@@ -54,8 +47,7 @@ public class BookingTableModel extends AbstractTableModel {
     {
         SimpleDateFormat ft = new SimpleDateFormat("M");
         int y = Integer.parseInt(ft.format(x));
-        //System.err.println("dsfsd>>> "+ y);
-        if(y ==2)
+         if(y ==2)
             return 28;
         else if (y ==1|| y ==3|| y ==5|| y ==7|| y ==8|| y ==10 || y== 12)
             return 31;
@@ -91,10 +83,8 @@ public class BookingTableModel extends AbstractTableModel {
         try {
             int rows = new RoomDb().getNoOfRooms();
 
-            // 11 columns, because i want to display only 10 days record
-            data = new Object[rows][11];
-            // initialization
-            for(int i=0;i<rows;i++)
+             data = new Object[rows][11];
+             for(int i=0;i<rows;i++)
             {
                 for(int j=0;j<data[0].length;j++)
                 {
@@ -104,8 +94,7 @@ public class BookingTableModel extends AbstractTableModel {
             ResultSet result;
             ResultSet roomNames;
             roomNames = new RoomDb().getAllRoomNames();
-            //result = new DatabaseOperation().getBookingInfo(43243214, 4321432);
-
+ 
             for (int i = 0; i < rows; i++) {
                 if (roomNames.next()) {
                     String roomName = roomNames.getString("room_no");

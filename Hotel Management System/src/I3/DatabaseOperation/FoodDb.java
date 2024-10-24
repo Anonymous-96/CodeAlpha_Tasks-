@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ 
 package I3.DatabaseOperation;
 
 import I3.Classes.Food;
@@ -12,10 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Faysal Ahmed
- */
+ 
 public class FoodDb {
     
     Connection conn = DataBaseConnection.connectTODB();
@@ -26,7 +19,7 @@ public class FoodDb {
         try {
             String insertFood = "insert into food('name','price') values('" + food.getName() + "'," + food.getPrice() + ")";
 
-            // System.out.println(">>>>>>>>>> "+ insertRoomTypeQuery);
+     
             statement = conn.prepareStatement(insertFood);
 
             statement.execute();
@@ -59,7 +52,7 @@ public class FoodDb {
         try {
             String updateFood = "update food set name= '" + food.getName() + "', price= " + food.getPrice() + " where food_id = " + food.getFood_id();
 
-            // System.out.println(">>>>>>>>>> "+ insertRoomTypeQuery);
+             
             statement = conn.prepareStatement(updateFood);
 
             statement.execute();

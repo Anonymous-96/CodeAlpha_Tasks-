@@ -1,9 +1,6 @@
 package I3.Classes;
 
-/**
- *
- * @author Faysal
- */
+ 
 public class Order {
     
     int orderId;

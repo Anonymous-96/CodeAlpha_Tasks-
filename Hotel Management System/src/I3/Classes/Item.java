@@ -1,9 +1,6 @@
 package I3.Classes;
 
-/**
- *
- * @author Faysal Ahmed
- */
+ 
 public class Item {
     
     private int item_id;

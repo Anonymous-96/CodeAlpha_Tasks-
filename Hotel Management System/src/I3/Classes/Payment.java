@@ -2,13 +2,10 @@ package I3.Classes;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Faysal Ahmed
- */
+ 
 public class Payment {
     
-    //required Object
+    
     private Booking booking;
     ArrayList<ExtraOrders> orders;
     int totalRentPrice;
@@ -24,7 +21,7 @@ public class Payment {
     public Payment(Booking b)
     {
         booking = b;
-        //totalRentPrice = b.getRoomsFare() * 1;
+         
         
     }
 

@@ -33,9 +33,9 @@ public class BookingDb {
                         + 0
                         + " )";
 
-                // ^^^ 0 for has_checked_out
+                ^^^ 0 for has_checked_out
                 statement = conn.prepareStatement(insertQuery);
-                //System.out.println(">>>>>>>>>> " + insertQuery);
+                System.out.println(">>>>>>>>>> " + insertQuery);
                 statement.execute();
 
                 JOptionPane.showMessageDialog(null, "successfully inserted new Booking");
@@ -75,7 +75,7 @@ public class BookingDb {
 
     public ResultSet bookingsReadyForOrder(String roomName) {
         try {
-           // flushAll();
+            flushAll();
             String query = "select booking_id,booking_room,name from booking join userInfo on booking.customer_id = userInfo.user_id where booking_room like '%" + roomName + "%' and has_checked_out = 0 order by booking_id desc";
             System.out.println(query);
             statement = conn.prepareStatement(query);
@@ -92,7 +92,7 @@ public class BookingDb {
         try {
             String updateFood = "update booking set has_checked_out= 1, check_out = " + checkOutTime + " where booking_id = " + bookingId;
 
-            // System.out.println(">>>>>>>>>> "+ insertRoomTypeQuery);
+             System.out.println(">>>>>>>>>> "+ insertRoomTypeQuery);
             statement = conn.prepareStatement(updateFood);
 
             statement.execute();
@@ -153,10 +153,10 @@ public class BookingDb {
             System.out.println(query);
             statement = conn.prepareStatement(query);
             result = statement.executeQuery();
-           // price = result.getInt("price");
-            //flushAll();
-           // System.out.println(price);
-           // flushAll();
+            price = result.getInt("price");
+            flushAll();
+            System.out.println(price);
+            flushAll();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.toString() + "\n error coming from returning payment getAllPaymentInfo,bookingDB");
@@ -179,7 +179,7 @@ public class BookingDb {
         {
             try {
                 statement.close();
-                //conn.close();
+                conn.close();
             } catch (SQLException ex) {
                 System.err.print(ex.toString() + " >> CLOSING DB");
             }

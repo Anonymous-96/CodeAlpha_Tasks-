@@ -10,10 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Faysal Ahmed
- */
+ 
 public class DatabaseOperation {
 
     Connection conn = DataBaseConnection.connectTODB();
@@ -31,8 +28,7 @@ public class DatabaseOperation {
                     + ",'" + user.getType() + "'"
                     + ")";
 
-            //System.out.println(">>>>>>>>>> "+ insertQuery);
-            statement = conn.prepareStatement(insertQuery);
+             statement = conn.prepareStatement(insertQuery);
 
             statement.execute();
 
@@ -62,8 +58,7 @@ public class DatabaseOperation {
     }
 
     public void updateCustomer(UserInfo user) {
-        // update userInfo set name = 'faysal' ,address = 'dhaka' where user_id = 3
-        try {
+         try {
             String updateQuery = "update userInfo set name = '"
                     + user.getName() + "',"
                     + "address = '" + user.getAddress() + "',"
@@ -71,11 +66,10 @@ public class DatabaseOperation {
                     + "type = '" + user.getType() + "' where user_id= "
                     + user.getCustomer_id();
 
-            //System.out.println(">>>>>>>>>> "+ insertQuery);
-            //System.out.println(updateQuery);
+           
             statement = conn.prepareStatement(updateQuery);
 
-            //System.out.println(updateQuery);
+             
             statement.execute();
 
             JOptionPane.showMessageDialog(null, "successfully updated new Customer");
@@ -118,8 +112,7 @@ public class DatabaseOperation {
     }
 
   
-    /// ************************************************************************  SEARCH AND OTHERS ************************************************
-    public ResultSet searchUser(String user) {
+     public ResultSet searchUser(String user) {
         try {
             String query = "select user_id,name,address from userInfo where name like '%"+user+"%'";
             
@@ -130,8 +123,7 @@ public class DatabaseOperation {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.toString() + "\n error coming from search user function");
         }
-            //System.out.println("fetching something");
-        return result;
+         return result;
     }
     
     public ResultSet searchAnUser(int id)
@@ -146,16 +138,14 @@ public class DatabaseOperation {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.toString() + "\n error coming from returning AN user function");
         }
-            //System.out.println("fetching something");
-        return result;
+         return result;
     }
 
     public ResultSet getAvailableRooms(long check_inTime)
     {
        try {
            
-           ///SELECT room_no FROM room LEFT OUTER JOIN booking ON room.room_no = booking.rooms WHERE booking.rooms is null or booking.check_out < strftime('%s', 'now')
-           // SELECT distinct room_no FROM room LEFT OUTER JOIN booking ON room.room_no = booking.rooms WHERE booking.rooms is null or booking.check_out < strftime('%s', 'now') order by check_out desc 
+           
             String query = "SELECT room_no FROM room LEFT OUTER JOIN booking ON room.room_no = booking.booking_room WHERE booking.booking_room is null or "+check_inTime+"< booking.check_in " +"or booking.check_out <"+check_inTime+" group by room.room_no  order by room_no ";
             System.out.println(query);
             statement = conn.prepareStatement(query);
@@ -171,16 +161,7 @@ public class DatabaseOperation {
     public ResultSet getBookingInfo(long start_date, long end_date,String roomNo)
     {
         try {
-            /*
-            
-                 select * from booking where 
-                (check_in <= start_date and (check_out=0 or check_out<= end_date ) )
-                or
-                (check_in>start_date and check_out< end_date)
-                or
-                (check_in <=end_date and (check_out =0 or check_out > end_date) ) 
-            
-                    */
+             
             
             String query = "select * from booking where booking_room = '"+ roomNo+"' AND ("
                     +"( check_in <= "+start_date +" and ( check_out = 0 or check_out<= "+end_date+") ) or"
@@ -206,8 +187,7 @@ public class DatabaseOperation {
             System.out.println(query +" <<<");
             statement = conn.prepareStatement(query);
             result = statement.executeQuery();
-            //System.out.println(" user id "+ result.getInt("user_id"));
-            
+             
             id = result.getInt("user_id");
             
         } catch (SQLException ex) {

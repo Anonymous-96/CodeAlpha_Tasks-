@@ -16,8 +16,7 @@ public class buy_sellShare {
 
     JFrame frame;
 
-    // Class constructor
-    public buy_sellShare(accountProfile profile, stockProfile[][] stockProfiles) {
+     public buy_sellShare(accountProfile profile, stockProfile[][] stockProfiles) {
         accProfile = profile;
         stocks = stockProfiles;
 
@@ -71,8 +70,7 @@ public class buy_sellShare {
         frame.setVisible(true);
     }
 
-    // Event handler for the buy and sell buttons
-    public class ButtonListener implements ActionListener {
+     public class ButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent et) {
@@ -114,8 +112,7 @@ public class buy_sellShare {
         }
     }
 
-    // Method that called when user wants to buy a stock
-    public void buyStock(stockProfile profile, int quantity) {
+     public void buyStock(stockProfile profile, int quantity) {
         double price = profile.getBuyPrice() * quantity;
 
         if (price < accProfile.getBalance()) {
@@ -134,8 +131,7 @@ public class buy_sellShare {
 
     }
 
-    // Method that is called when user wants to sell a stock
-    public void sellStock(stockProfile profile, int quantity, String stockName) {
+     public void sellStock(stockProfile profile, int quantity, String stockName) {
 
         if (quantity <= profile.getQuantity()) {
 
@@ -156,14 +152,12 @@ public class buy_sellShare {
 
     }
     
-    //Method to display new balance
-    public void displayNewBalance(){
+     public void displayNewBalance(){
         JOptionPane.showMessageDialog(null, "Balance: " + roundTo2DP(accProfile.getBalance()),
                     "Successful Sell", JOptionPane.WARNING_MESSAGE);
     }
 
-    // Method to search account profile for a stock (used when user is selling stock)
-    public stockProfile searchBoughtStock(String stockName) {
+     public stockProfile searchBoughtStock(String stockName) {
         ArrayList<stockProfile> stocksBought = accProfile.getStocks();
         for (int i = 0; i < stocksBought.size(); i++) {
             if (stocksBought.get(i).getProfileName().equalsIgnoreCase(stockName)) {
@@ -173,8 +167,7 @@ public class buy_sellShare {
         return null;
     }
 
-    // Method to search  for a stock (used when user is buying stock)
-    public stockProfile searchAvailableStock(String stockName) {
+     public stockProfile searchAvailableStock(String stockName) {
 
         for (stockProfile[] stockArray : stocks) {
             for (stockProfile stock : stockArray) {
@@ -188,14 +181,12 @@ public class buy_sellShare {
         return null;
     }
     
-    // Rounding to 2 decimal place
-    public static Double roundTo2DP(double number) {
+     public static Double roundTo2DP(double number) {
         DecimalFormat roundFormat = new DecimalFormat(".##");
         return (Double.parseDouble(roundFormat.format(number)));
     }
 
-    // Method to close the window
-    public void terminate() {
+     public void terminate() {
         frame.dispose();
     }
 

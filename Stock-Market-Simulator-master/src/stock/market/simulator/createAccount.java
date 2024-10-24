@@ -14,8 +14,7 @@ public class createAccount {
     boolean created;
     JFrame frame;
 
-    // Class constructor
-    public createAccount() {
+     public createAccount() {
         created = false;
         ButtonListener listener = new ButtonListener();
 
@@ -55,8 +54,7 @@ public class createAccount {
 
     }
     
-    // Event handler for when buttons are pressed in the window
-    public class ButtonListener implements ActionListener {
+     public class ButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent et) {
@@ -80,18 +78,15 @@ public class createAccount {
         }
     }
 
-    // Method to retrieve the account profile after it has been created
-    public accountProfile getAccountProfile() {
+     public accountProfile getAccountProfile() {
         return accProfile;
     }
 
-    // Method to retrieve variable to find out if account profile was created successfully
-    public boolean getCreated() {
+     public boolean getCreated() {
         return created;
     }
 
-    // Method to close window
-    public void terminate() {
+     public void terminate() {
         frame.dispose();
     }
 }

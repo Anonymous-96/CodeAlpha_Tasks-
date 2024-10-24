@@ -11,8 +11,7 @@ public class viewGraph {
 
     JComboBox<String> names;
 
-    // Class constructor
-    public viewGraph(stockProfile[][] stockProfiles) {
+     public viewGraph(stockProfile[][] stockProfiles) {
 
         ButtonListener listener = new ButtonListener();
 
@@ -60,8 +59,7 @@ public class viewGraph {
 
     }
 
-    // Event handler for when "View Graph" button is pressed
-    public class ButtonListener implements ActionListener {
+     public class ButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent et) {

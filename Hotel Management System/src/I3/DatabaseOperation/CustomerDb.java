@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ 
 package I3.DatabaseOperation;
 
 import I3.Classes.UserInfo;
@@ -12,10 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Faysal Ahmed
- */
+ 
 public class CustomerDb {
     Connection conn;
     PreparedStatement statement = null;
@@ -36,7 +29,7 @@ public class CustomerDb {
                     + ",'" + user.getType() + "'"
                     + ")";
 
-            //System.out.println(">>>>>>>>>> "+ insertQuery);
+            System.out.println(">>>>>>>>>> "+ insertQuery);
             statement = conn.prepareStatement(insertQuery);
 
             statement.execute();
@@ -55,7 +48,7 @@ public class CustomerDb {
     }
     
     public void updateCustomer(UserInfo user) {
-        // update userInfo set name = 'faysal' ,address = 'dhaka' where user_id = 3
+         
         try {
             String updateQuery = "update userInfo set name = '"
                     + user.getName() + "',"
@@ -64,11 +57,11 @@ public class CustomerDb {
                     + "type = '" + user.getType() + "' where user_id= "
                     + user.getCustomer_id();
 
-            //System.out.println(">>>>>>>>>> "+ insertQuery);
-            //System.out.println(updateQuery);
+            System.out.println(">>>>>>>>>> "+ insertQuery);
+            System.out.println(updateQuery);
             statement = conn.prepareStatement(updateQuery);
 
-            //System.out.println(updateQuery);
+            System.out.println(updateQuery);
             statement.execute();
 
             JOptionPane.showMessageDialog(null, "successfully updated new Customer");
@@ -117,7 +110,7 @@ public class CustomerDb {
                         try
                         {
                             statement.close();
-                            //conn.close();
+                            conn.close();
                         }
                         catch(SQLException ex)
                         {System.err.print(ex.toString()+" >> CLOSING DB");}

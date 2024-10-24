@@ -1,9 +1,6 @@
 package I3.Classes;
 
-/**
- *
- * @author Faysal Ahmed
- */
+ 
 public class Food {
     
     private int food_id;

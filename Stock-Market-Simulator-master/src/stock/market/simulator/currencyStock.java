@@ -5,8 +5,7 @@ public class currencyStock extends stockProfile {
     private final String from;
     private final String to;
    
-    // Class constructor
-    public currencyStock(String f, String t, double sPrice, double bPrice) {
+     public currencyStock(String f, String t, double sPrice, double bPrice) {
 
         super(f + "-" + t, sPrice, bPrice, 0.01);
         from = f;
@@ -15,8 +14,7 @@ public class currencyStock extends stockProfile {
 
     }
     
-    // Method to retrieve the margin
-    @Override
+     @Override
     public double getMargin() {
         return 0.01;
     }

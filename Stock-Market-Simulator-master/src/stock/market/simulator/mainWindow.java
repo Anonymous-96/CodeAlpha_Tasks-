@@ -15,8 +15,7 @@ import static stock.market.simulator.StockMarketSimulator.HISTORYFILEPATH;
 
 public class mainWindow {
 
-    // CURRENCY STOCK TEXT FIELDS
-    JTextField EURUSD;
+     JTextField EURUSD;
     JTextField diffEURUSD;
 
     JTextField GBPUSD;
@@ -28,8 +27,7 @@ public class mainWindow {
     JTextField GBPJPY;
     JTextField diffGBPJPY;
 
-    // COMPANY STOCK TEXT FIELDS
-    JTextField facebook;
+     JTextField facebook;
     JTextField difffacebook;
 
     JTextField apple;
@@ -41,8 +39,7 @@ public class mainWindow {
     JTextField bmw;
     JTextField diffbmw;
 
-    // ECONOMY STOCK TEXT FIELDS
-    JTextField uk;
+     JTextField uk;
     JTextField diffuk;
 
     JTextField usa;
@@ -61,8 +58,7 @@ public class mainWindow {
     accountProfile accProfile;
     stockProfile[][] stocksProfiles;
 
-    // Class constructor
-    public mainWindow(accountProfile account, stockProfile[][] profiles) {
+     public mainWindow(accountProfile account, stockProfile[][] profiles) {
 
         accProfile = account;
         stocksProfiles = profiles;
@@ -80,8 +76,7 @@ public class mainWindow {
         stockInfo.setBorder(stockInfoBorder);
         stockInfo.setLayout(new GridLayout(2, 0, 10, 0));
 
-        // CURRENCY STOCK PANEL
-        JLabel lblEURUSD = new JLabel("EUR/USD", SwingConstants.CENTER);
+         JLabel lblEURUSD = new JLabel("EUR/USD", SwingConstants.CENTER);
         JLabel lblGBPUSD = new JLabel("GBP/USD", SwingConstants.CENTER);
         JLabel lblEURGBP = new JLabel("EUR/GBP", SwingConstants.CENTER);
         JLabel lblGBPJPY = new JLabel("GBP/JPY", SwingConstants.CENTER);
@@ -132,8 +127,7 @@ public class mainWindow {
         currencyPanel.add(textFields[0][3]);
         currencyPanel.add(differenceTextFields[0][3]);
 
-        // COMPANY STOCK PANEL
-        JLabel lblfacebook = new JLabel("Facebook", SwingConstants.CENTER);
+         JLabel lblfacebook = new JLabel("Facebook", SwingConstants.CENTER);
         JLabel lblapple = new JLabel("Apple", SwingConstants.CENTER);
         JLabel lblmicrosoft = new JLabel("Microsoft", SwingConstants.CENTER);
         JLabel lblbmw = new JLabel("BMW", SwingConstants.CENTER);
@@ -184,8 +178,7 @@ public class mainWindow {
         companyPanel.add(textFields[1][3]);
         companyPanel.add(differenceTextFields[1][3]);
 
-        // ECONOMY STOCK PANEL
-        JPanel currencyCompanyHolder = new JPanel();
+         JPanel currencyCompanyHolder = new JPanel();
         currencyCompanyHolder.setLayout(new GridLayout(1, 2, 10, 0));
 
         currencyCompanyHolder.add(currencyPanel);
@@ -284,8 +277,7 @@ public class mainWindow {
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
         buttonPanel.add(btnBuySell);
         buttonPanel.add(btnShowGraph);
-        //buttonPanel.setPreferredSize(new Dimension(110, 75));
-
+ 
         frame.add(mainPanel);
         frame.add(buttonPanel);
 
@@ -297,8 +289,7 @@ public class mainWindow {
 
     }
 
-    // Event handler for when buttons are pressed
-    public class ButtonListener implements ActionListener {
+     public class ButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent et) {
@@ -321,8 +312,7 @@ public class mainWindow {
 
     }
     
-    // Method to set the values of the text boxes with the stock prices
-    public void setTextBoxValues(stockProfile[][] stocksProfiles) {
+     public void setTextBoxValues(stockProfile[][] stocksProfiles) {
 
         for (int i = 0; i < stocksProfiles.length; i++) {
             for (int j = 0; j < stocksProfiles[i].length; j++) {
@@ -342,21 +332,18 @@ public class mainWindow {
 
     }
 
-    // Method to set the buy and sell rates for a stock
-    public void setStockPriceTextField(JTextField field, stockProfile profile) {
+     public void setStockPriceTextField(JTextField field, stockProfile profile) {
         field.setText(
                 String.valueOf(profile.getBuyPrice()) + "/" + String.valueOf(profile.getSellPrice()));
 
     }
 
-    // Setting the difference between current rate and previous rates
-    public void setDifferenceTextField(JTextField field, double change) {
+     public void setDifferenceTextField(JTextField field, double change) {
         String difference = (change > 0) ? ("+" + change) : ("" + change);
         field.setText(difference + "%");
     }
 
-    // Method to display the bought stocks in the relative text area
-    public void setStockBought() {
+     public void setStockBought() {
         ArrayList<stockProfile> stocksBought = accProfile.getStocks();
         int numOfStock = stocksBought.size();
         String message = "STOCK NAME - BUY PRICE/SELL PRICE - Quantity\n";
@@ -370,8 +357,7 @@ public class mainWindow {
         stocksBoughtInfo.setText(message);
     }
 
-    // Method to set the font colour of the difference
-    public void setTextFieldColour(JTextField field, double change) {
+     public void setTextFieldColour(JTextField field, double change) {
         if (change >= 0) {
             field.setForeground(Color.green);
         } else {
@@ -379,8 +365,7 @@ public class mainWindow {
         }
     }
 
-    // Method to write the rate to its relavant file
-    public void writeRateToFile(String fileName, double rate) {
+     public void writeRateToFile(String fileName, double rate) {
 
         try {
             String location = HISTORYFILEPATH + fileName + ".csv";
@@ -401,8 +386,7 @@ public class mainWindow {
 
     }
     
-    // Rounding to 2 decimal place
-    public static Double roundTo2DP(double number) {
+     public static Double roundTo2DP(double number) {
         DecimalFormat roundFormat = new DecimalFormat(".##");
         return (Double.parseDouble(roundFormat.format(number)));
     }

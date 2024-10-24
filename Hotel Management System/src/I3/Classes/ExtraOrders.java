@@ -1,9 +1,6 @@
 package I3.Classes;
 
-/**
- *
- * @author Faysal Ahmed
- */
+ 
 public class ExtraOrders {
 
     private int order_id;
@@ -11,7 +8,7 @@ public class ExtraOrders {
     private String dateTime;
     private int quantity;
     private Item item;
-    //int order_total;
+    
 
     public int getOrder_id() {
         return order_id;

@@ -27,8 +27,7 @@ public class createGraph {
     JFrame frame;
     JPanel chartPanel;
 
-    // Class constructor
-    public createGraph(String fName) {
+     public createGraph(String fName) {
 
         fileName = fName;
         frame = new JFrame(fileName + " Change");
@@ -67,8 +66,7 @@ public class createGraph {
         }, 0, 10000);
     }
 
-    // Method to create the JPanel where the chart will be displayed
-    private JPanel createChartPanel() throws NumberFormatException, IOException {
+     private JPanel createChartPanel() throws NumberFormatException, IOException {
         String chartTitle = fileName + " Change";
         String xAxisLabel = "X";
         String yAxisLabel = "Y";
@@ -85,8 +83,7 @@ public class createGraph {
         return new ChartPanel(chart);
     }
 
-    // Method to create the set of data using the stock rate for the chart
-    private XYDataset createDataset() throws NumberFormatException, IOException {
+     private XYDataset createDataset() throws NumberFormatException, IOException {
         XYSeriesCollection dataSet = new XYSeriesCollection();
         XYSeries series = new XYSeries("Price");
 
@@ -108,8 +105,7 @@ public class createGraph {
         return dataSet;
     }
 
-    // Method to close the window
-    public void dispose() {
+     public void dispose() {
         frame.dispose();
 
     }

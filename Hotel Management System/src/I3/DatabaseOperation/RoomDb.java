@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ 
 package I3.DatabaseOperation;
 
 import I3.Classes.Room;
@@ -13,10 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Faysal Ahmed
- */
+ 
 public class RoomDb {
     Connection conn = DataBaseConnection.connectTODB();
     PreparedStatement statement = null;
@@ -125,10 +118,9 @@ public class RoomDb {
                     
 
             System.out.println(">>>>>>>>>> "+ updateQuery);
-            //System.out.println(updateQuery);
+             
             statement = conn.prepareStatement(updateQuery);
 
-            //System.out.println(updateQuery);
             statement.execute();
 
             JOptionPane.showMessageDialog(null, "successfully updated a room");
@@ -183,7 +175,7 @@ public class RoomDb {
         try {
             String updateRoomTypeQuery = "update roomType set price= " + roomType.getPricePerDay() + " where type='" + roomType.getRoom_type() + "'";
 
-            //System.out.println(">>>>>>>>>> "+ updateRoomTypeQuery);
+             
             statement = conn.prepareStatement(updateRoomTypeQuery);
 
             statement.execute();

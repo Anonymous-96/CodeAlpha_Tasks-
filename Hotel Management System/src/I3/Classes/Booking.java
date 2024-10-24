@@ -3,16 +3,10 @@ package I3.Classes;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author Faysal Ahmed
- */
+
 public class Booking {
     
-   // int CONFIRMED = 0;
-   // int RESERVED = 1;   
-    
-    // required Object
+   
     
     private UserInfo customer;
     ArrayList<Room> rooms;
@@ -24,7 +18,7 @@ public class Booking {
     private long checkOutDateTime;
     private String bookingType;
     private int person;
-    //private int roomsFare;
+    
     
     
     

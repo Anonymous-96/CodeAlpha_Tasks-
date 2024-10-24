@@ -1,9 +1,6 @@
 package I3.Classes;
 
-/**
- *
- * @author Faysal Ahmed
- */
+ 
 public class Room {
     private int room_id;
     private String room_no;
